@@ -10,15 +10,15 @@
         body { display: flex; flex-direction: column; align-items: center; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
         body.dark-mode { background: #1a1a2e; }
         body.dark-mode .top-panel { background: #16213e; }
-        body.dark-mode .panel-title { color: #e2e8f0; }
-        body.dark-mode .panel-btn { background: rgba(255,255,255,0.1); color: #e2e8f0; }
-        body.dark-mode .panel-btn:hover { background: rgba(255,255,255,0.2); }
+        body.dark-mode .panel-title { color: #ffffff; }
+        body.dark-mode .panel-btn { background: rgba(255,255,255,0.15); color: #ffffff; }
+        body.dark-mode .panel-btn:hover { background: rgba(255,255,255,0.25); }
         body.dark-mode .background-section { background: #1a1a2e; }
         body.dark-mode .homepage { background: #1a1a2e; }
-        body.dark-mode .homepage-title { color: #e2e8f0; }
+        body.dark-mode .homepage-title { color: #ffffff; }
         body.dark-mode .homepage-subtitle { color: #94a3b8; }
         body.dark-mode .intro-text { background: #16213e; border-color: #2a3a5e; color: #e2e8f0; }
-        body.dark-mode .intro-text .highlight { color: #e2e8f0; }
+        body.dark-mode .intro-text .highlight { color: #ffffff; }
         body.dark-mode .intro-text .signature { color: #94a3b8; }
         body.dark-mode .container img { background: #16213e; }
         .top-panel { width: 100%; background: #e8ecf0; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background-color 0.3s ease; }
@@ -56,14 +56,14 @@
     </div>
     <div class="homepage-wrapper" id="top">
         <div class="background-section">
-            <img src="D:\Users\dell\Desktop\fish\assets\fish\textures/background.png" alt="背景图" />
+            <img src="assets/fish/textures/background.png" alt="背景图" />
         </div>
         <div class="homepage">
             <div class="homepage-title">🏛️ 摸鱼小镇</div>
             <div class="homepage-subtitle">— 象征 · 传承 · 荣耀 —</div>
             <div class="content-row">
                 <div class="container">
-                    <img src="D:\Users\dell\Desktop\fish\assets\fish\textures/Clownfish.png" alt="摸鱼小镇" />
+                    <img src="assets/fish/textures/Clownfish.png" alt="摸鱼小镇" />
                 </div>
                 <div class="intro-text">
                     <p><span class="highlight">摸鱼小镇</span>，自17th建立以来，便是一个以"快乐摸鱼，轻松玩耍"为宗旨的MC玩家组织。</p>
@@ -74,13 +74,11 @@
         </div>
     </div>
     <script>
-        // 页面加载时读取 localStorage 并应用主题
         document.addEventListener('DOMContentLoaded', function() {
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
             }
         });
-        // 监听 storage 变化（当其他页面修改时同步）
         window.addEventListener('storage', function(e) {
             if (e.key === 'theme') {
                 if (e.newValue === 'dark') {
