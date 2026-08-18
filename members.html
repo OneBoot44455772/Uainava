@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摸鱼小镇 - 玩家成员</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; min-height: 100vh; background: #ffffff; transition: background-color 0.3s ease; }
+        body { display: flex; flex-direction: column; align-items: center; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body.dark-mode { background: #1a1a2e; }
+        body.dark-mode .top-panel { background: #16213e; }
+        body.dark-mode .panel-title { color: #e2e8f0; }
+        body.dark-mode .panel-btn { background: rgba(255,255,255,0.1); color: #e2e8f0; }
+        body.dark-mode .panel-btn:hover { background: rgba(255,255,255,0.2); }
+        body.dark-mode .members-page { background: #1a1a2e; }
+        body.dark-mode .members-header h1 { color: #e2e8f0; }
+        body.dark-mode .members-header p { color: #94a3b8; }
+        body.dark-mode .member-item { background: #16213e; border-color: #2a3a5e; }
+        body.dark-mode .member-item .name { color: #e2e8f0; }
+        body.dark-mode .notice-text { background: #2a3a5e; border-color: #4a6fa5; color: #e2e8f0; }
+        body.dark-mode .notice-text strong { color: #fcd34d; }
+        .top-panel { width: 100%; background: #e8ecf0; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background-color 0.3s ease; }
+        .panel-left { display: flex; align-items: center; gap: 1.5rem; }
+        .panel-right { display: flex; align-items: center; gap: 1rem; }
+        .panel-title { color: #1e293b; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s ease; }
+        .panel-btn { border: none; border-radius: 9999px; padding: 0.5rem 1.6rem; font-size: 0.9rem; font-weight: 500; background: rgba(255,255,255,0.6); color: #1e293b; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; }
+        .panel-btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+        .members-page { width: 100%; min-height: 100vh; padding: 100px 3rem 3rem; background: #ffffff; display: flex; flex-direction: column; align-items: center; transition: background-color 0.3s ease; }
+        .members-header { text-align: center; margin-bottom: 2.5rem; width: 100%; max-width: 1100px; }
+        .members-header h1 { font-size: 2.5rem; font-weight: 700; color: #1e293b; letter-spacing: 2px; transition: color 0.3s ease; }
+        .members-header p { font-size: 1rem; color: #94a3b8; margin-top: 0.3rem; transition: color 0.3s ease; }
+        .members-content { display: flex; align-items: flex-start; justify-content: center; gap: 3rem; width: 100%; max-width: 1100px; flex-wrap: wrap; }
+        .members-list { flex: 1; min-width: 300px; max-width: 600px; display: flex; flex-direction: column; gap: 1rem; }
+        .member-item { display: flex; align-items: center; gap: 1.5rem; background: #f8fafc; border-radius: 30px; padding: 0.8rem 1.5rem 0.8rem 0.8rem; border: 1px solid #f1f5f9; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .member-item img { width: 60px; height: 60px; border-radius: 0; background: #e2e8f0; object-fit: cover; }
+        .member-item .name { font-size: 1.1rem; font-weight: 600; color: #1e293b; transition: color 0.3s ease; }
+        .member-item .role { font-size: 0.85rem; color: #22c55e; font-weight: 500; margin-left: 0.3rem; }
+        .member-item .role-old { font-size: 0.85rem; color: #f59e0b; font-weight: 500; margin-left: 0.3rem; }
+        .notice-text { flex: 1; min-width: 250px; max-width: 400px; padding: 1.5rem 2rem; background: #fef3c7; border-radius: 30px; border: 1px solid #fcd34d; font-size: 1rem; line-height: 1.8; color: #92400e; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+        .notice-text strong { font-weight: 600; color: #92400e; transition: color 0.3s ease; }
+        @media (max-width: 900px) { .members-content { flex-direction: column; align-items: center; gap: 2rem; } .members-list { max-width: 100%; min-width: 100%; } .notice-text { max-width: 100%; width: 100%; } }
+        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .members-page { padding: 80px 1.2rem 2rem; } .members-header h1 { font-size: 1.8rem; } .member-item { padding: 0.6rem 1rem 0.6rem 0.6rem; } .member-item img { width: 50px; height: 50px; } .member-item .name { font-size: 1rem; } .notice-text { font-size: 0.9rem; padding: 1.2rem 1.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="top-panel">
+        <div class="panel-left">
+            <span class="panel-title">🐠 控制面板</span>
+            <a href="index.html" class="panel-btn">首页</a>
+            <a href="members.html" class="panel-btn" style="background: rgba(255,255,255,0.9);">玩家成员</a>
+            <a href="settings.html" class="panel-btn">设置</a>
+        </div>
+        <div class="panel-right"></div>
+    </div>
+    <div class="members-page">
+        <div class="members-header">
+            <h1>🎣 玩家成员</h1>
+            <p>— 摸鱼小镇的伙伴们 —</p>
+        </div>
+        <div class="members-content">
+            <div class="members-list">
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/keke_mc.png" alt="玩家头像"><span class="name">keke_mc</span><span class="role-old">[第一任镇长]</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/qwq13514.png" alt="玩家头像"><span class="name">qwq13514</span><span class="role">[现任镇长]</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Oneboot44455772.png" alt="玩家头像"><span class="name">Oneboot44455772</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/ABCblock_.png" alt="玩家头像"><span class="name">ABCblock_</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Ake258.png" alt="玩家头像"><span class="name">Ake258</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Alex_10086.png" alt="玩家头像"><span class="name">Alex_10086</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Amissingsheep.png" alt="玩家头像"><span class="name">Amissingsheep</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/as178126.png" alt="玩家头像"><span class="name">as178126</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Banxian277.png" alt="玩家头像"><span class="name">Banxian277</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/lcarus_238764.png" alt="玩家头像"><span class="name">lcarus_238764</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Lingyang13.png" alt="玩家头像"><span class="name">Lingyang13</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/mengxuxiang1145.png" alt="玩家头像"><span class="name">mengxuxiang1145</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/Mofi5h.png" alt="玩家头像"><span class="name">Mofi5h</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/qxxxxxxxxp.png" alt="玩家头像"><span class="name">qxxxxxxxxp</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/sakuraitou.png" alt="玩家头像"><span class="name">sakuraitou</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/SCPZiXuan.png" alt="玩家头像"><span class="name">SCPZiXuan</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/tcQAQ.png" alt="玩家头像"><span class="name">tcQAQ</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/wobuhuijianzhu11.png" alt="玩家头像"><span class="name">wobuhuijianzhu11</span></div>
+                <div class="member-item"><img src="D:\Users\dell\Desktop\fish\assets\fish\textures\playerhead/yubin_131.png" alt="玩家头像"><span class="name">yubin_131</span></div>
+            </div>
+            <div class="notice-text">
+                <p>很抱歉，我们通过现有技术无法搜索到 <strong>Cryingimminent</strong>、<strong>=Qingapple</strong> 二位玩家的相关信息，但他们也是摸鱼小镇的成员，请记住他们！</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'theme') {
+                if (e.newValue === 'dark') {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
