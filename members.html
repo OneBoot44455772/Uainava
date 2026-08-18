@@ -23,7 +23,8 @@
         .top-panel { width: 100%; background: #e8ecf0; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background-color 0.3s ease; }
         .panel-left { display: flex; align-items: center; gap: 1.5rem; }
         .panel-right { display: flex; align-items: center; gap: 1rem; }
-        .panel-title { color: #1e293b; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s ease; }
+        .panel-title { display: flex; align-items: center; gap: 0.5rem; color: #1e293b; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s ease; }
+        .panel-title img { width: 28px; height: 28px; display: block; }
         .panel-btn { border: none; border-radius: 9999px; padding: 0.5rem 1.6rem; font-size: 0.9rem; font-weight: 500; background: rgba(255,255,255,0.6); color: #1e293b; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; }
         .panel-btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
         .members-page { width: 100%; min-height: 100vh; padding: 100px 3rem 3rem; background: #ffffff; display: flex; flex-direction: column; align-items: center; transition: background-color 0.3s ease; }
@@ -40,13 +41,16 @@
         .notice-text { flex: 1; min-width: 250px; max-width: 400px; padding: 1.5rem 2rem; background: #fef3c7; border-radius: 30px; border: 1px solid #fcd34d; font-size: 1rem; line-height: 1.8; color: #92400e; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
         .notice-text strong { font-weight: 600; color: #92400e; transition: color 0.3s ease; }
         @media (max-width: 900px) { .members-content { flex-direction: column; align-items: center; gap: 2rem; } .members-list { max-width: 100%; min-width: 100%; } .notice-text { max-width: 100%; width: 100%; } }
-        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .members-page { padding: 80px 1.2rem 2rem; } .members-header h1 { font-size: 1.8rem; } .member-item { padding: 0.6rem 1rem 0.6rem 0.6rem; } .member-item img { width: 50px; height: 50px; } .member-item .name { font-size: 1rem; } .notice-text { font-size: 0.9rem; padding: 1.2rem 1.5rem; } }
+        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .members-page { padding: 80px 1.2rem 2rem; } .members-header h1 { font-size: 1.8rem; } .member-item { padding: 0.6rem 1rem 0.6rem 0.6rem; } .member-item img { width: 50px; height: 50px; } .member-item .name { font-size: 1rem; } .notice-text { font-size: 0.9rem; padding: 1.2rem 1.5rem; } }
     </style>
 </head>
 <body>
     <div class="top-panel">
         <div class="panel-left">
-            <span class="panel-title">🐠 控制面板</span>
+            <span class="panel-title">
+                <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="热带鱼" />
+                摸鱼小镇
+            </span>
             <a href="index.html" class="panel-btn">首页</a>
             <a href="members.html" class="panel-btn" style="background: rgba(255,255,255,0.9);">玩家成员</a>
             <a href="settings.html" class="panel-btn">设置</a>
