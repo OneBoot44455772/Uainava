@@ -6,8 +6,23 @@
     <title>摸鱼小镇</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 100%; min-height: 100vh; background: #ffffff; scroll-behavior: smooth; transition: background-color 0.3s ease; }
+        html, body { width: 100%; min-height: 100vh; background: #ffffff; scroll-behavior: smooth; transition: background 0.5s ease; }
         body { display: flex; flex-direction: column; align-items: center; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+        body.light-mode { background: #ffffff; }
+        body.light-mode .top-panel { background: #e8ecf0; }
+        body.light-mode .panel-title { color: #1e293b; }
+        body.light-mode .panel-btn { background: rgba(255,255,255,0.6); color: #1e293b; }
+        body.light-mode .panel-btn:hover { background: rgba(255,255,255,0.9); }
+        body.light-mode .background-section { background: #ffffff; }
+        body.light-mode .homepage { background: #ffffff; }
+        body.light-mode .homepage-title { color: #1e293b; }
+        body.light-mode .homepage-subtitle { color: #94a3b8; }
+        body.light-mode .intro-text { background: #f8fafc; border-color: #f1f5f9; color: #334155; }
+        body.light-mode .intro-text .highlight { color: #1e293b; }
+        body.light-mode .intro-text .signature { color: #64748b; }
+        body.light-mode .container img { background: #ffffff; }
+
         body.dark-mode { background: #1a1a2e; }
         body.dark-mode .top-panel { background: #16213e; }
         body.dark-mode .panel-title { color: #ffffff; }
@@ -21,77 +36,124 @@
         body.dark-mode .intro-text .highlight { color: #ffffff; }
         body.dark-mode .intro-text .signature { color: #94a3b8; }
         body.dark-mode .container img { background: #16213e; }
-        .top-panel { width: 100%; background: #e8ecf0; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background-color 0.3s ease; }
+
+        body.ocean-mode { background: linear-gradient(135deg, #0c2340 0%, #1a5276 40%, #2e86c1 100%); }
+        body.ocean-mode .top-panel { background: rgba(12, 35, 64, 0.85); backdrop-filter: blur(10px); }
+        body.ocean-mode .panel-title { color: #e8f4fd; }
+        body.ocean-mode .panel-btn { background: rgba(255,255,255,0.15); color: #e8f4fd; }
+        body.ocean-mode .panel-btn:hover { background: rgba(255,255,255,0.25); }
+        body.ocean-mode .background-section { background: transparent; }
+        body.ocean-mode .homepage { background: transparent; }
+        body.ocean-mode .homepage-title { color: #e8f4fd; }
+        body.ocean-mode .homepage-subtitle { color: #a8d8ea; }
+        body.ocean-mode .intro-text { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #e8f4fd; }
+        body.ocean-mode .intro-text .highlight { color: #ffffff; }
+        body.ocean-mode .intro-text .signature { color: #a8d8ea; }
+        body.ocean-mode .container img { background: rgba(255,255,255,0.1); }
+
+        body.forest-mode { background: linear-gradient(135deg, #0d2818 0%, #1a4a2a 40%, #2d6a4f 100%); }
+        body.forest-mode .top-panel { background: rgba(13, 40, 24, 0.85); backdrop-filter: blur(10px); }
+        body.forest-mode .panel-title { color: #e8f5e9; }
+        body.forest-mode .panel-btn { background: rgba(255,255,255,0.15); color: #e8f5e9; }
+        body.forest-mode .panel-btn:hover { background: rgba(255,255,255,0.25); }
+        body.forest-mode .background-section { background: transparent; }
+        body.forest-mode .homepage { background: transparent; }
+        body.forest-mode .homepage-title { color: #e8f5e9; }
+        body.forest-mode .homepage-subtitle { color: #a5d6a7; }
+        body.forest-mode .intro-text { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #e8f5e9; }
+        body.forest-mode .intro-text .highlight { color: #ffffff; }
+        body.forest-mode .intro-text .signature { color: #a5d6a7; }
+        body.forest-mode .container img { background: rgba(255,255,255,0.1); }
+
+        body.sakura-mode { background: linear-gradient(135deg, #2d1b2e 0%, #5c2e4a 40%, #d4739d 100%); }
+        body.sakura-mode .top-panel { background: rgba(45, 27, 46, 0.85); backdrop-filter: blur(10px); }
+        body.sakura-mode .panel-title { color: #fce4ec; }
+        body.sakura-mode .panel-btn { background: rgba(255,255,255,0.15); color: #fce4ec; }
+        body.sakura-mode .panel-btn:hover { background: rgba(255,255,255,0.25); }
+        body.sakura-mode .background-section { background: transparent; }
+        body.sakura-mode .homepage { background: transparent; }
+        body.sakura-mode .homepage-title { color: #fce4ec; }
+        body.sakura-mode .homepage-subtitle { color: #f8bbd0; }
+        body.sakura-mode .intro-text { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #fce4ec; }
+        body.sakura-mode .intro-text .highlight { color: #ffffff; }
+        body.sakura-mode .intro-text .signature { color: #f8bbd0; }
+        body.sakura-mode .container img { background: rgba(255,255,255,0.1); }
+
+        .top-panel { width: 100%; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background 0.5s ease; }
         .panel-left { display: flex; align-items: center; gap: 1.5rem; }
         .panel-right { display: flex; align-items: center; gap: 1rem; }
-        .panel-title { display: flex; align-items: center; gap: 0.5rem; color: #1e293b; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s ease; }
+        .panel-title { display: flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.3px; transition: color 0.3s ease; }
         .panel-title img { width: 28px; height: 28px; display: block; }
-        .panel-btn { border: none; border-radius: 9999px; padding: 0.5rem 1.6rem; font-size: 0.9rem; font-weight: 500; background: rgba(255,255,255,0.6); color: #1e293b; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; }
-        .panel-btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+        .panel-btn { border: none; border-radius: 9999px; padding: 0.5rem 1.6rem; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; }
+        .panel-btn:hover { transform: translateY(-1px); }
         #top { scroll-margin-top: 0; }
         .homepage-wrapper { width: 100%; scroll-margin-top: 0; }
-        .background-section { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 60px; background: #ffffff; transition: background-color 0.3s ease; }
+        .background-section { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 60px; transition: background 0.5s ease; }
         .background-section img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-        .homepage { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 3rem; gap: 1.5rem; background: #ffffff; flex-shrink: 0; transition: background-color 0.3s ease; }
-        .homepage-title { font-size: 2.5rem; font-weight: 700; color: #1e293b; letter-spacing: 2px; transition: color 0.3s ease; }
-        .homepage-subtitle { font-size: 1rem; color: #94a3b8; margin-bottom: 0.5rem; transition: color 0.3s ease; }
+        .homepage { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 3rem; gap: 1.5rem; flex-shrink: 0; transition: background 0.5s ease; }
+        .homepage-title { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; transition: color 0.3s ease; }
+        .homepage-subtitle { font-size: 1rem; margin-bottom: 0.5rem; transition: color 0.3s ease; }
         .content-row { display: flex; align-items: center; gap: 3rem; width: 100%; max-width: 1100px; justify-content: flex-start; padding-left: 5%; }
         .container { flex-shrink: 0; }
-        .container img { display: block; width: 400px; height: 400px; border-radius: 30px; background: #ffffff; object-fit: contain; transition: background-color 0.3s ease; }
-        .intro-text { font-size: 1.05rem; line-height: 2; color: #334155; max-width: 500px; background: #f8fafc; padding: 2rem 2.2rem; border-radius: 30px; border: 1px solid #f1f5f9; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
-        .intro-text .highlight { font-weight: 600; color: #1e293b; transition: color 0.3s ease; }
-        .intro-text .signature { margin-top: 0.8rem; font-style: italic; color: #64748b; font-size: 0.95rem; transition: color 0.3s ease; }
+        .container img { display: block; width: 400px; height: 400px; border-radius: 30px; object-fit: contain; transition: background 0.3s ease; }
+        .intro-text { font-size: 1.05rem; line-height: 2; max-width: 500px; padding: 2rem 2.2rem; border-radius: 30px; border: 1px solid; transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+        .intro-text .highlight { font-weight: 600; transition: color 0.3s ease; }
+        .intro-text .signature { margin-top: 0.8rem; font-style: italic; font-size: 0.95rem; transition: color 0.3s ease; }
+
         @media (max-width: 900px) { .content-row { flex-direction: column; align-items: center; padding-left: 0; gap: 1.5rem; } .intro-text { max-width: 90%; font-size: 0.95rem; padding: 1.5rem; } }
         @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .background-section { margin-top: 50px; } .homepage-title { font-size: 1.8rem; } .homepage { padding: 1.5rem; } .container img { width: 280px; height: 280px; } .intro-text { font-size: 0.9rem; padding: 1.2rem; line-height: 1.8; } }
     </style>
 </head>
-<body>
-    <div class="top-panel">
-        <div class="panel-left">
+<body class="light-mode">
+<div class="top-panel">
+    <div class="panel-left">
             <span class="panel-title">
                 <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="热带鱼" />
                 摸鱼小镇
             </span>
-            <a href="index.html" class="panel-btn">首页</a>
-            <a href="members.html" class="panel-btn">玩家成员</a>
-            <a href="settings.html" class="panel-btn">设置</a>
-        </div>
-        <div class="panel-right"></div>
+        <a href="index.html" class="panel-btn">首页</a>
+        <a href="members.html" class="panel-btn">玩家成员</a>
+        <a href="settings.html" class="panel-btn">设置</a>
     </div>
-    <div class="homepage-wrapper" id="top">
-        <div class="background-section">
-            <img src="fish/assets/fish/textures/background.png" alt="背景图" />
-        </div>
-        <div class="homepage">
-            <div class="homepage-title">摸鱼小镇</div>
-            <div class="homepage-subtitle">— 象征 · 传承 · 荣耀 —</div>
-            <div class="content-row">
-                <div class="container">
-                    <img src="fish/assets/fish/textures/Clownfish.png" alt="摸鱼小镇" />
-                </div>
-                <div class="intro-text">
-                    <p><span class="highlight">摸鱼小镇</span>，自17th建立以来，便是一个以"快乐摸鱼，轻松玩耍"为宗旨的MC玩家组织。</p>
-                    <p>我们佛系生存、互助共享、建筑自由，不肝不卷，快乐至上。人来人往，小镇常在。</p>
-                    <p class="signature">摸鱼小镇会一直在那里，等你有一天忽然想回来看看——小镇的摸门，永远为你敞开。</p>
-                </div>
+    <div class="panel-right"></div>
+</div>
+<div class="homepage-wrapper" id="top">
+    <div class="background-section">
+        <img src="fish/assets/fish/textures/background.png" alt="背景图" />
+    </div>
+    <div class="homepage">
+        <div class="homepage-title">摸鱼小镇</div>
+        <div class="homepage-subtitle">— 象征 · 传承 · 荣耀 —</div>
+        <div class="content-row">
+            <div class="container">
+                <img src="fish/assets/fish/textures/Clownfish.png" alt="摸鱼小镇" />
+            </div>
+            <div class="intro-text">
+                <p><span class="highlight">摸鱼小镇</span>，自17th建立以来，便是一个以"快乐摸鱼，轻松玩耍"为宗旨的MC玩家组织。</p>
+                <p>我们佛系生存、互助共享、建筑自由，不肝不卷，快乐至上。人来人往，小镇常在。</p>
+                <p class="signature">摸鱼小镇会一直在那里，等你有一天忽然想回来看看——小镇的摸门，永远为你敞开。</p>
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-        });
-        window.addEventListener('storage', function(e) {
-            if (e.key === 'theme') {
-                if (e.newValue === 'dark') {
-                    document.body.classList.add('dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                }
-            }
-        });
-    </script>
+</div>
+<script>
+    function applyTheme(theme) {
+        document.body.classList.remove('light-mode', 'dark-mode', 'ocean-mode', 'forest-mode', 'sakura-mode');
+        if (theme && theme !== 'light') {
+            document.body.classList.add(theme + '-mode');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+    });
+
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'theme') {
+            applyTheme(e.newValue || 'light');
+        }
+    });
+</script>
 </body>
 </html>
