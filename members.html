@@ -99,4 +99,144 @@
         .members-page { width: 100%; min-height: 100vh; padding: 100px 3rem 3rem; display: flex; flex-direction: column; align-items: center; transition: background 0.5s ease; }
         .members-header { text-align: center; margin-bottom: 2.5rem; width: 100%; max-width: 1100px; }
         .members-header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; transition: color 0.3s ease; }
-        .members-header p { font-size: 1rem; margin-top: 0.3rem; transition:
+        .members-header p { font-size: 1rem; margin-top: 0.3rem; transition: color 0.3s ease; }
+        .members-content { display: flex; align-items: flex-start; justify-content: center; gap: 3rem; width: 100%; max-width: 1100px; flex-wrap: wrap; }
+        .members-list { flex: 1; min-width: 300px; max-width: 600px; display: flex; flex-direction: column; gap: 1rem; }
+        .member-item { display: flex; align-items: center; gap: 1.5rem; border-radius: 30px; padding: 0.8rem 1.5rem 0.8rem 0.8rem; border: 1px solid; transition: background 0.3s ease, border-color 0.3s ease; }
+        .member-item img { width: 60px; height: 60px; border-radius: 0; background: #e2e8f0; object-fit: cover; }
+        .member-item .name { font-size: 1.1rem; font-weight: 600; transition: color 0.3s ease; }
+        .member-item .role { font-size: 0.85rem; color: #22c55e; font-weight: 500; margin-left: 0.3rem; }
+        .member-item .role-old { font-size: 0.85rem; color: #f59e0b; font-weight: 500; margin-left: 0.3rem; }
+        .notice-text { flex: 1; min-width: 250px; max-width: 400px; padding: 1.5rem 2rem; border-radius: 30px; border: 1px solid; font-size: 1rem; line-height: 1.8; transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+        .notice-text strong { font-weight: 600; transition: color 0.3s ease; }
+
+        .moyu-quote { position: fixed; bottom: 100px; right: 2.5rem; z-index: 998; max-width: 280px; padding: 1.2rem 1.8rem; border-radius: 20px; border: 1px solid; text-align: center; backdrop-filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; pointer-events: none; }
+        .moyu-quote .quote-text { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+        .moyu-quote .quote-source { font-size: 0.75rem; margin-top: 0.4rem; display: block; font-style: italic; }
+        .moyu-quote.hidden { opacity: 0; transform: scale(0.92); }
+
+        .moyu-fab { position: fixed; bottom: 2.5rem; right: 2.5rem; z-index: 999; width: 64px; height: 64px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; background: #f59e0b; padding: 0; }
+        .moyu-fab:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+        .moyu-fab:active { transform: scale(0.94); }
+        .moyu-fab img { width: 40px; height: 40px; display: block; border-radius: 50%; object-fit: cover; }
+        body.dark-mode .moyu-fab { background: #d97706; }
+        body.ocean-mode .moyu-fab { background: #2e86c1; }
+        body.forest-mode .moyu-fab { background: #2d6a4f; }
+        body.sakura-mode .moyu-fab { background: #d4739d; }
+
+        @media (max-width: 900px) { .members-content { flex-direction: column; align-items: center; gap: 2rem; } .members-list { max-width: 100%; min-width: 100%; } .notice-text { max-width: 100%; width: 100%; } }
+        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .members-page { padding: 80px 1.2rem 2rem; } .members-header h1 { font-size: 1.8rem; } .member-item { padding: 0.6rem 1rem 0.6rem 0.6rem; } .member-item img { width: 50px; height: 50px; } .member-item .name { font-size: 1rem; } .notice-text { font-size: 0.9rem; padding: 1.2rem 1.5rem; } .moyu-fab { bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; } .moyu-fab img { width: 32px; height: 32px; } .moyu-quote { bottom: 80px; right: 1.5rem; max-width: 200px; padding: 0.8rem 1.2rem; } .moyu-quote .quote-text { font-size: 0.85rem; } }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="top-panel">
+        <div class="panel-left">
+            <span class="panel-title">
+                <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="热带鱼" />
+                摸鱼小镇
+            </span>
+            <a href="index.html" class="panel-btn">首页</a>
+            <a href="members.html" class="panel-btn" style="background: rgba(255,255,255,0.9);">玩家成员</a>
+            <a href="settings.html" class="panel-btn">设置</a>
+        </div>
+        <div class="panel-right"></div>
+    </div>
+
+    <div class="members-page">
+        <div class="members-header">
+            <h1>玩家成员</h1>
+            <p>— 摸鱼小镇的伙伴们 —</p>
+        </div>
+        <div class="members-content">
+            <div class="members-list">
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/keke_mc.png" alt="玩家头像"><span class="name">keke_mc</span><span class="role-old">[第一任镇长]</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/qwq13514.png" alt="玩家头像"><span class="name">qwq13514</span><span class="role">[现任镇长]</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Oneboot44455772.png" alt="玩家头像"><span class="name">Oneboot44455772</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/ABCblock_.png" alt="玩家头像"><span class="name">ABCblock_</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Ake258.png" alt="玩家头像"><span class="name">Ake258</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Alex_10086.png" alt="玩家头像"><span class="name">Alex_10086</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Amissingsheep.png" alt="玩家头像"><span class="name">Amissingsheep</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/as178126.png" alt="玩家头像"><span class="name">as178126</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Banxian277.png" alt="玩家头像"><span class="name">Banxian277</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/lcarus_238764.png" alt="玩家头像"><span class="name">lcarus_238764</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Lingyang13.png" alt="玩家头像"><span class="name">Lingyang13</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/mengxuxiang1145.png" alt="玩家头像"><span class="name">mengxuxiang1145</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/Mofi5h.png" alt="玩家头像"><span class="name">Mofi5h</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/qxxxxxxxxp.png" alt="玩家头像"><span class="name">qxxxxxxxxp</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/sakuraitou.png" alt="玩家头像"><span class="name">sakuraitou</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/SCPZiXuan.png" alt="玩家头像"><span class="name">SCPZiXuan</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/tcQAQ.png" alt="玩家头像"><span class="name">tcQAQ</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/wobuhuijianzhu11.png" alt="玩家头像"><span class="name">wobuhuijianzhu11</span></div>
+                <div class="member-item"><img src="fish/assets/fish/textures/playerhead/yubin_131.png" alt="玩家头像"><span class="name">yubin_131</span></div>
+            </div>
+            <div class="notice-text">
+                <p>很抱歉，我们通过现有技术无法搜索到 <strong>Cryingimminent</strong>、<strong>=Qingapple</strong> 二位玩家的相关信息，但他们也是摸鱼小镇的成员，请记住他们！</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="moyu-fab" id="moyuFab" title="摸鱼一下">
+        <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="摸鱼" />
+    </button>
+
+    <div class="moyu-quote hidden" id="moyuQuote">
+        <span class="quote-text" id="quoteText">摸一下</span>
+        <span class="quote-source" id="quoteSource">摸鱼小镇</span>
+    </div>
+
+    <script>
+        var quotes = [
+            { text: "今天摸鱼，明天摸鱼，天天摸鱼！", source: "摸鱼小镇 · 镇训" },
+            { text: "摸鱼不是偷懒，是给生活加点糖。", source: "摸鱼小镇 · 哲学" },
+            { text: "工作再忙，也要记得摸鱼。", source: "摸鱼小镇 · 忠告" },
+            { text: "摸鱼一时爽，一直摸鱼一直爽。", source: "摸鱼小镇 · 真理" },
+            { text: "鱼可以摸，但心不能散。", source: "摸鱼小镇 · 格言" },
+            { text: "摸鱼是门艺术，讲究天时地利人和。", source: "摸鱼小镇 · 技法" },
+            { text: "摸鱼小镇，快乐摸鱼，轻松玩耍。", source: "摸鱼小镇 · 宗旨" },
+            { text: "不肝不卷，快乐至上。", source: "摸鱼小镇 · 信条" },
+            { text: "小镇的摸门，永远为你敞开。", source: "摸鱼小镇 · 欢迎" },
+            { text: "人来人往，小镇常在。", source: "摸鱼小镇 · 永恒" }
+        ];
+
+        var currentQuoteIndex = -1;
+        var quoteText = document.getElementById('quoteText');
+        var quoteSource = document.getElementById('quoteSource');
+        var quoteContainer = document.getElementById('moyuQuote');
+
+        function showRandomQuote() {
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+            while (randomIndex === currentQuoteIndex && quotes.length > 1) {
+                randomIndex = Math.floor(Math.random() * quotes.length);
+            }
+            currentQuoteIndex = randomIndex;
+            var q = quotes[randomIndex];
+            quoteContainer.classList.add('hidden');
+            setTimeout(function() {
+                quoteText.textContent = q.text;
+                quoteSource.textContent = q.source;
+                quoteContainer.classList.remove('hidden');
+            }, 200);
+        }
+
+        document.getElementById('moyuFab').addEventListener('click', showRandomQuote);
+
+        function applyTheme(theme) {
+            document.body.classList.remove('light-mode', 'dark-mode', 'ocean-mode', 'forest-mode', 'sakura-mode');
+            if (theme && theme !== 'light') {
+                document.body.classList.add(theme + '-mode');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+        });
+
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'theme') {
+                applyTheme(e.newValue || 'light');
+            }
+        });
+    </script>
+</body>
+</html>
