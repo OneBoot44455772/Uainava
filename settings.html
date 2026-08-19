@@ -6,7 +6,7 @@
     <title>摸鱼小镇 - 设置</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 100%; min-height: 100vh; background: #ffffff; transition: background 0.5s ease, color 0.3s ease; }
+        html, body { width: 100%; min-height: 100vh; background: #ffffff; transition: background 0.5s ease; }
         body { display: flex; flex-direction: column; align-items: center; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 
         body.light-mode { background: #ffffff; }
@@ -23,6 +23,9 @@
         body.light-mode .status-text { color: #64748b; }
         body.light-mode .toggle-switch { background: #cbd5e1; }
         body.light-mode .toggle-switch.active { background: #1e293b; }
+        body.light-mode .moyu-quote { background: rgba(255,255,255,0.92); border-color: #e2e8f0; color: #1e293b; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+        body.light-mode .moyu-quote .quote-text { color: #0f172a; }
+        body.light-mode .moyu-quote .quote-source { color: #94a3b8; }
 
         body.dark-mode { background: #1a1a2e; }
         body.dark-mode .top-panel { background: #16213e; }
@@ -38,6 +41,9 @@
         body.dark-mode .toggle-switch { background: #2a3a5e; }
         body.dark-mode .toggle-switch.active { background: #4a6fa5; }
         body.dark-mode .status-text { color: #94a3b8; }
+        body.dark-mode .moyu-quote { background: rgba(26, 26, 46, 0.92); border-color: #2a3a5e; color: #e2e8f0; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        body.dark-mode .moyu-quote .quote-text { color: #ffffff; }
+        body.dark-mode .moyu-quote .quote-source { color: #94a3b8; }
 
         body.ocean-mode { background: linear-gradient(135deg, #0c2340 0%, #1a5276 40%, #2e86c1 100%); }
         body.ocean-mode .top-panel { background: rgba(12, 35, 64, 0.85); backdrop-filter: blur(10px); }
@@ -53,6 +59,9 @@
         body.ocean-mode .toggle-switch { background: rgba(255,255,255,0.3); }
         body.ocean-mode .toggle-switch.active { background: #2e86c1; }
         body.ocean-mode .status-text { color: #a8d8ea; }
+        body.ocean-mode .moyu-quote { background: rgba(12, 35, 64, 0.92); border-color: rgba(255,255,255,0.2); color: #e8f4fd; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.ocean-mode .moyu-quote .quote-text { color: #ffffff; }
+        body.ocean-mode .moyu-quote .quote-source { color: #a8d8ea; }
 
         body.forest-mode { background: linear-gradient(135deg, #0d2818 0%, #1a4a2a 40%, #2d6a4f 100%); }
         body.forest-mode .top-panel { background: rgba(13, 40, 24, 0.85); backdrop-filter: blur(10px); }
@@ -68,6 +77,9 @@
         body.forest-mode .toggle-switch { background: rgba(255,255,255,0.3); }
         body.forest-mode .toggle-switch.active { background: #2d6a4f; }
         body.forest-mode .status-text { color: #a5d6a7; }
+        body.forest-mode .moyu-quote { background: rgba(13, 40, 24, 0.92); border-color: rgba(255,255,255,0.2); color: #e8f5e9; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.forest-mode .moyu-quote .quote-text { color: #ffffff; }
+        body.forest-mode .moyu-quote .quote-source { color: #a5d6a7; }
 
         body.sakura-mode { background: linear-gradient(135deg, #2d1b2e 0%, #5c2e4a 40%, #d4739d 100%); }
         body.sakura-mode .top-panel { background: rgba(45, 27, 46, 0.85); backdrop-filter: blur(10px); }
@@ -83,6 +95,9 @@
         body.sakura-mode .toggle-switch { background: rgba(255,255,255,0.3); }
         body.sakura-mode .toggle-switch.active { background: #d4739d; }
         body.sakura-mode .status-text { color: #f8bbd0; }
+        body.sakura-mode .moyu-quote { background: rgba(45, 27, 46, 0.92); border-color: rgba(255,255,255,0.2); color: #fce4ec; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.sakura-mode .moyu-quote .quote-text { color: #ffffff; }
+        body.sakura-mode .moyu-quote .quote-source { color: #f8bbd0; }
 
         .top-panel { width: 100%; border-radius: 0; padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-shrink: 0; position: fixed; top: 0; left: 0; z-index: 100; opacity: 0.92; transition: background 0.5s ease; }
         .panel-left { display: flex; align-items: center; gap: 1.5rem; }
@@ -119,19 +134,21 @@
         body.light-mode .theme-dot-light.active { border-color: #1e293b; box-shadow: 0 0 12px rgba(30,41,59,0.2); }
         .theme-label { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 0.2rem; }
 
-        @media (max-width: 768px) {
-            .top-panel { padding: 0.6rem 1rem; }
-            .panel-title { font-size: 0.9rem; }
-            .panel-title img { width: 22px; height: 22px; }
-            .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; }
-            .settings-page { padding: 80px 1.2rem 2rem; }
-            .settings-title { font-size: 1.8rem; }
-            .setting-card { padding: 1rem 1.2rem; flex-wrap: wrap; gap: 0.8rem; }
-            .toggle-switch { width: 44px; height: 24px; }
-            .toggle-switch::after { width: 18px; height: 18px; top: 3px; left: 3px; }
-            .toggle-switch.active::after { transform: translateX(20px); }
-            .theme-dot { width: 30px; height: 30px; }
-        }
+        .moyu-quote { position: fixed; bottom: 100px; right: 2.5rem; z-index: 998; max-width: 280px; padding: 1.2rem 1.8rem; border-radius: 20px; border: 1px solid; text-align: center; backdrop-filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; pointer-events: none; }
+        .moyu-quote .quote-text { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+        .moyu-quote .quote-source { font-size: 0.75rem; margin-top: 0.4rem; display: block; font-style: italic; }
+        .moyu-quote.hidden { opacity: 0; transform: scale(0.92); }
+
+        .moyu-fab { position: fixed; bottom: 2.5rem; right: 2.5rem; z-index: 999; width: 64px; height: 64px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; background: #f59e0b; padding: 0; }
+        .moyu-fab:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+        .moyu-fab:active { transform: scale(0.94); }
+        .moyu-fab img { width: 40px; height: 40px; display: block; border-radius: 50%; object-fit: cover; }
+        body.dark-mode .moyu-fab { background: #d97706; }
+        body.ocean-mode .moyu-fab { background: #2e86c1; }
+        body.forest-mode .moyu-fab { background: #2d6a4f; }
+        body.sakura-mode .moyu-fab { background: #d4739d; }
+
+        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .settings-page { padding: 80px 1.2rem 2rem; } .settings-title { font-size: 1.8rem; } .setting-card { padding: 1rem 1.2rem; flex-wrap: wrap; gap: 0.8rem; } .toggle-switch { width: 44px; height: 24px; } .toggle-switch::after { width: 18px; height: 18px; top: 3px; left: 3px; } .toggle-switch.active::after { transform: translateX(20px); } .theme-dot { width: 30px; height: 30px; } .moyu-fab { bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; } .moyu-fab img { width: 32px; height: 32px; } .moyu-quote { bottom: 80px; right: 1.5rem; max-width: 200px; padding: 0.8rem 1.2rem; } .moyu-quote .quote-text { font-size: 0.85rem; } }
     </style>
 </head>
 <body class="light-mode">
@@ -197,27 +214,71 @@
         </div>
     </div>
 
+    <button class="moyu-fab" id="moyuFab" title="摸鱼一下">
+        <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="摸鱼" />
+    </button>
+
+    <div class="moyu-quote hidden" id="moyuQuote">
+        <span class="quote-text" id="quoteText">摸一下</span>
+        <span class="quote-source" id="quoteSource">摸鱼小镇</span>
+    </div>
+
     <script>
-        let currentTheme = 'light';
+        var quotes = [
+            { text: "今天摸鱼，明天摸鱼，天天摸鱼！", source: "摸鱼小镇 · 镇训" },
+            { text: "摸鱼不是偷懒，是给生活加点糖。", source: "摸鱼小镇 · 哲学" },
+            { text: "工作再忙，也要记得摸鱼。", source: "摸鱼小镇 · 忠告" },
+            { text: "摸鱼一时爽，一直摸鱼一直爽。", source: "摸鱼小镇 · 真理" },
+            { text: "鱼可以摸，但心不能散。", source: "摸鱼小镇 · 格言" },
+            { text: "摸鱼是门艺术，讲究天时地利人和。", source: "摸鱼小镇 · 技法" },
+            { text: "摸鱼小镇，快乐摸鱼，轻松玩耍。", source: "摸鱼小镇 · 宗旨" },
+            { text: "不肝不卷，快乐至上。", source: "摸鱼小镇 · 信条" },
+            { text: "小镇的摸门，永远为你敞开。", source: "摸鱼小镇 · 欢迎" },
+            { text: "人来人往，小镇常在。", source: "摸鱼小镇 · 永恒" }
+        ];
+
+        var currentQuoteIndex = -1;
+        var quoteText = document.getElementById('quoteText');
+        var quoteSource = document.getElementById('quoteSource');
+        var quoteContainer = document.getElementById('moyuQuote');
+
+        function showRandomQuote() {
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+            while (randomIndex === currentQuoteIndex && quotes.length > 1) {
+                randomIndex = Math.floor(Math.random() * quotes.length);
+            }
+            currentQuoteIndex = randomIndex;
+            var q = quotes[randomIndex];
+            quoteContainer.classList.add('hidden');
+            setTimeout(function() {
+                quoteText.textContent = q.text;
+                quoteSource.textContent = q.source;
+                quoteContainer.classList.remove('hidden');
+            }, 200);
+        }
+
+        document.getElementById('moyuFab').addEventListener('click', showRandomQuote);
+
+        var currentTheme = 'light';
 
         function setTheme(theme) {
             document.body.classList.remove('light-mode', 'dark-mode', 'ocean-mode', 'forest-mode', 'sakura-mode');
             document.body.classList.add(theme + '-mode');
             currentTheme = theme;
 
-            document.querySelectorAll('.theme-dot').forEach(dot => dot.classList.remove('active'));
-            const dotMap = {
+            document.querySelectorAll('.theme-dot').forEach(function(dot) { dot.classList.remove('active'); });
+            var dotMap = {
                 'light': 'dot-light',
                 'dark': 'dot-dark',
                 'ocean': 'dot-ocean',
                 'forest': 'dot-forest',
                 'sakura': 'dot-sakura'
             };
-            const activeDot = document.getElementById(dotMap[theme]);
+            var activeDot = document.getElementById(dotMap[theme]);
             if (activeDot) activeDot.classList.add('active');
 
-            const toggle = document.getElementById('themeToggle');
-            const status = document.getElementById('themeStatus');
+            var toggle = document.getElementById('themeToggle');
+            var status = document.getElementById('themeStatus');
             if (theme === 'dark') {
                 toggle.classList.add('active');
                 status.textContent = '开启';
@@ -230,8 +291,6 @@
         }
 
         function toggleDarkMode() {
-            const toggle = document.getElementById('themeToggle');
-            const status = document.getElementById('themeStatus');
             if (currentTheme === 'dark') {
                 setTheme('light');
             } else {
@@ -240,7 +299,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            var savedTheme = localStorage.getItem('theme') || 'light';
             setTheme(savedTheme);
         });
 
