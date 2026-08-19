@@ -22,7 +22,7 @@
         body.light-mode .intro-text .highlight { color: #1e293b; }
         body.light-mode .intro-text .signature { color: #64748b; }
         body.light-mode .container img { background: #ffffff; }
-        body.light-mode .moyu-quote { background: rgba(255,255,255,0.92); border-color: #e2e8f0; color: #1e293b; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+        body.light-mode .moyu-quote { background: rgba(255,255,255,0.95); border-color: #e2e8f0; color: #1e293b; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
         body.light-mode .moyu-quote .quote-text { color: #0f172a; }
         body.light-mode .moyu-quote .quote-source { color: #94a3b8; }
 
@@ -39,7 +39,7 @@
         body.dark-mode .intro-text .highlight { color: #ffffff; }
         body.dark-mode .intro-text .signature { color: #94a3b8; }
         body.dark-mode .container img { background: #16213e; }
-        body.dark-mode .moyu-quote { background: rgba(26, 26, 46, 0.92); border-color: #2a3a5e; color: #e2e8f0; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        body.dark-mode .moyu-quote { background: rgba(26, 26, 46, 0.95); border-color: #2a3a5e; color: #e2e8f0; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
         body.dark-mode .moyu-quote .quote-text { color: #ffffff; }
         body.dark-mode .moyu-quote .quote-source { color: #94a3b8; }
 
@@ -56,7 +56,7 @@
         body.ocean-mode .intro-text .highlight { color: #ffffff; }
         body.ocean-mode .intro-text .signature { color: #a8d8ea; }
         body.ocean-mode .container img { background: rgba(255,255,255,0.1); }
-        body.ocean-mode .moyu-quote { background: rgba(12, 35, 64, 0.92); border-color: rgba(255,255,255,0.2); color: #e8f4fd; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.ocean-mode .moyu-quote { background: rgba(12, 35, 64, 0.95); border-color: rgba(255,255,255,0.2); color: #e8f4fd; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
         body.ocean-mode .moyu-quote .quote-text { color: #ffffff; }
         body.ocean-mode .moyu-quote .quote-source { color: #a8d8ea; }
 
@@ -73,7 +73,7 @@
         body.forest-mode .intro-text .highlight { color: #ffffff; }
         body.forest-mode .intro-text .signature { color: #a5d6a7; }
         body.forest-mode .container img { background: rgba(255,255,255,0.1); }
-        body.forest-mode .moyu-quote { background: rgba(13, 40, 24, 0.92); border-color: rgba(255,255,255,0.2); color: #e8f5e9; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.forest-mode .moyu-quote { background: rgba(13, 40, 24, 0.95); border-color: rgba(255,255,255,0.2); color: #e8f5e9; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
         body.forest-mode .moyu-quote .quote-text { color: #ffffff; }
         body.forest-mode .moyu-quote .quote-source { color: #a5d6a7; }
 
@@ -90,7 +90,7 @@
         body.sakura-mode .intro-text .highlight { color: #ffffff; }
         body.sakura-mode .intro-text .signature { color: #f8bbd0; }
         body.sakura-mode .container img { background: rgba(255,255,255,0.1); }
-        body.sakura-mode .moyu-quote { background: rgba(45, 27, 46, 0.92); border-color: rgba(255,255,255,0.2); color: #fce4ec; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        body.sakura-mode .moyu-quote { background: rgba(45, 27, 46, 0.95); border-color: rgba(255,255,255,0.2); color: #fce4ec; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
         body.sakura-mode .moyu-quote .quote-text { color: #ffffff; }
         body.sakura-mode .moyu-quote .quote-source { color: #f8bbd0; }
 
@@ -103,22 +103,17 @@
         .panel-btn:hover { transform: translateY(-1px); }
         #top { scroll-margin-top: 0; }
         .homepage-wrapper { width: 100%; scroll-margin-top: 0; }
-        .background-section { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 60px; transition: background 0.5s ease; position: relative; }
+        .background-section { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 60px; transition: background 0.5s ease; }
         .background-section img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
         .homepage { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 3rem; gap: 1.5rem; flex-shrink: 0; transition: background 0.5s ease; }
         .homepage-title { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; transition: color 0.3s ease; }
         .homepage-subtitle { font-size: 1rem; margin-bottom: 0.5rem; transition: color 0.3s ease; }
-        .content-row { display: flex; align-items: center; gap: 3rem; width: 100%; max-width: 1100px; justify-content: flex-start; padding-left: 5%; position: relative; }
-        .container { flex-shrink: 0; position: relative; }
+        .content-row { display: flex; align-items: center; gap: 3rem; width: 100%; max-width: 1100px; justify-content: flex-start; padding-left: 5%; }
+        .container { flex-shrink: 0; }
         .container img { display: block; width: 400px; height: 400px; border-radius: 30px; object-fit: contain; transition: background 0.3s ease; }
         .intro-text { font-size: 1.05rem; line-height: 2; max-width: 500px; padding: 2rem 2.2rem; border-radius: 30px; border: 1px solid; transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
         .intro-text .highlight { font-weight: 600; transition: color 0.3s ease; }
         .intro-text .signature { margin-top: 0.8rem; font-style: italic; font-size: 0.95rem; transition: color 0.3s ease; }
-
-        .moyu-quote { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 320px; width: 90%; padding: 1.5rem 2rem; border-radius: 24px; border: 1px solid; text-align: center; backdrop-filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; pointer-events: none; z-index: 10; }
-        .moyu-quote .quote-text { font-size: 1.1rem; font-weight: 500; line-height: 1.6; }
-        .moyu-quote .quote-source { font-size: 0.8rem; margin-top: 0.5rem; display: block; font-style: italic; }
-        .moyu-quote.hidden { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
 
         .moyu-fab { position: fixed; bottom: 2.5rem; right: 2.5rem; z-index: 999; width: 64px; height: 64px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; background: #f59e0b; padding: 0; }
         .moyu-fab:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
@@ -129,8 +124,13 @@
         body.forest-mode .moyu-fab { background: #2d6a4f; }
         body.sakura-mode .moyu-fab { background: #d4739d; }
 
-        @media (max-width: 900px) { .content-row { flex-direction: column; align-items: center; padding-left: 0; gap: 1.5rem; } .intro-text { max-width: 90%; font-size: 0.95rem; padding: 1.5rem; } .container img { width: 300px; height: 300px; } .moyu-quote { max-width: 260px; padding: 1.2rem 1.5rem; } .moyu-quote .quote-text { font-size: 0.95rem; } }
-        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .background-section { margin-top: 50px; } .homepage-title { font-size: 1.8rem; } .homepage { padding: 1.5rem; } .container img { width: 220px; height: 220px; } .intro-text { font-size: 0.9rem; padding: 1.2rem; line-height: 1.8; } .moyu-fab { bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; } .moyu-fab img { width: 32px; height: 32px; } .moyu-quote { max-width: 200px; padding: 1rem 1.2rem; } .moyu-quote .quote-text { font-size: 0.85rem; } }
+        .moyu-quote { position: fixed; bottom: 7rem; right: 2.5rem; z-index: 998; max-width: 280px; padding: 1.2rem 1.8rem; border-radius: 20px; border: 1px solid; text-align: center; backdrop-filter: blur(8px); transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; }
+        .moyu-quote .quote-text { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+        .moyu-quote .quote-source { font-size: 0.75rem; margin-top: 0.4rem; display: block; font-style: italic; }
+        .moyu-quote.hidden { opacity: 0; transform: scale(0.92); }
+
+        @media (max-width: 900px) { .content-row { flex-direction: column; align-items: center; padding-left: 0; gap: 1.5rem; } .intro-text { max-width: 90%; font-size: 0.95rem; padding: 1.5rem; } .container img { width: 300px; height: 300px; } }
+        @media (max-width: 768px) { .top-panel { padding: 0.6rem 1rem; } .panel-title { font-size: 0.9rem; } .panel-title img { width: 22px; height: 22px; } .panel-btn { padding: 0.3rem 0.8rem; font-size: 0.75rem; } .background-section { margin-top: 50px; } .homepage-title { font-size: 1.8rem; } .homepage { padding: 1.5rem; } .container img { width: 220px; height: 220px; } .intro-text { font-size: 0.9rem; padding: 1.2rem; line-height: 1.8; } .moyu-fab { bottom: 1.5rem; right: 1.5rem; width: 52px; height: 52px; } .moyu-fab img { width: 32px; height: 32px; } .moyu-quote { bottom: 5.5rem; right: 1.5rem; max-width: 200px; padding: 0.8rem 1.2rem; } .moyu-quote .quote-text { font-size: 0.85rem; } }
     </style>
 </head>
 <body class="light-mode">
@@ -157,10 +157,6 @@
             <div class="content-row">
                 <div class="container">
                     <img src="fish/assets/fish/textures/Clownfish.png" alt="摸鱼小镇" />
-                    <div class="moyu-quote" id="moyuQuote">
-                        <span class="quote-text" id="quoteText">摸一下</span>
-                        <span class="quote-source" id="quoteSource">摸鱼小镇</span>
-                    </div>
                 </div>
                 <div class="intro-text">
                     <p><span class="highlight">摸鱼小镇</span>，自17th建立以来，便是一个以"快乐摸鱼，轻松玩耍"为宗旨的MC玩家组织。</p>
@@ -175,18 +171,33 @@
         <img src="fish/assets/fish/textures/Invicon_Tropical_Fish.png" alt="摸鱼" />
     </button>
 
+    <div class="moyu-quote hidden" id="moyuQuote">
+        <span class="quote-text" id="quoteText">摸一下</span>
+        <span class="quote-source" id="quoteSource">摸鱼小镇</span>
+    </div>
+
     <script>
         var quotes = [
             { text: "今天摸鱼，明天摸鱼，天天摸鱼！", source: "摸鱼小镇 · 镇训" },
+            { text: "摸鱼一时爽，一直摸鱼一直爽。", source: "摸鱼小镇 · 真理" },
             { text: "摸鱼不是偷懒，是给生活加点糖。", source: "摸鱼小镇 · 哲学" },
             { text: "工作再忙，也要记得摸鱼。", source: "摸鱼小镇 · 忠告" },
-            { text: "摸鱼一时爽，一直摸鱼一直爽。", source: "摸鱼小镇 · 真理" },
             { text: "鱼可以摸，但心不能散。", source: "摸鱼小镇 · 格言" },
             { text: "摸鱼是门艺术，讲究天时地利人和。", source: "摸鱼小镇 · 技法" },
+            { text: "摸鱼的最高境界，是让别人以为你在工作。", source: "摸鱼小镇 · 秘籍" },
+            { text: "真正的摸鱼大师，从不让人觉得他在摸鱼。", source: "摸鱼小镇 · 境界" },
             { text: "摸鱼小镇，快乐摸鱼，轻松玩耍。", source: "摸鱼小镇 · 宗旨" },
             { text: "不肝不卷，快乐至上。", source: "摸鱼小镇 · 信条" },
             { text: "小镇的摸门，永远为你敞开。", source: "摸鱼小镇 · 欢迎" },
-            { text: "人来人往，小镇常在。", source: "摸鱼小镇 · 永恒" }
+            { text: "人来人往，小镇常在。", source: "摸鱼小镇 · 永恒" },
+            { text: "摸鱼小镇，摸的是鱼，交的是心。", source: "摸鱼小镇 · 情怀" },
+            { text: "生活不止眼前的苟且，还有鱼和远方。", source: "摸鱼小镇 · 诗意" },
+            { text: "摸鱼是对生活最基本的尊重。", source: "摸鱼小镇 · 态度" },
+            { text: "人生苦短，摸鱼趁早。", source: "摸鱼小镇 · 箴言" },
+            { text: "摸鱼是一种态度，快乐是一种选择。", source: "摸鱼小镇 · 选择" },
+            { text: "据说在小镇摸鱼的人，运气都不会太差。", source: "摸鱼小镇 · 玄学" },
+            { text: "摸鱼小镇的鱼，越摸越多。", source: "摸鱼小镇 · 传说" },
+            { text: "你今天摸鱼了吗？", source: "摸鱼小镇 · 问候" }
         ];
 
         var currentQuoteIndex = -1;
